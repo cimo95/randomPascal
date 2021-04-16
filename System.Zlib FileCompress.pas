@@ -62,7 +62,7 @@ begin
         SetLength(a, h);
         e.ReadBuffer(PByte(a)^, h);
         b := TEncoding.UTF8.GetString(a);
-        b := ExtractFileName(b); // to avoid a security risk
+        b := ExtractFileName(b);
         c := TFileStream.Create(IncludeTrailingBackslash(_folderHasil) +
           b, fmCreate or fmShareExclusive);
         try
