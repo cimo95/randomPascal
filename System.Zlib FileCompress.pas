@@ -21,12 +21,10 @@ begin
       begin
         b := TFileStream.Create(_daftarFile[f], fmOpenRead and fmShareExclusive);
         try
-          { write File Name }
           a := TEncoding.UTF8.GetBytes(ExtractFileName(_daftarFile[f]));
           g := Length(a);
           d.Write(g, SizeOf(Integer));
           d.Write(PByte(a)^, g);
-          { Write File }
           h := b.Size;
           d.Write(h, SizeOf(Integer));
           d.CopyFrom(b, b.Size);
@@ -43,7 +41,6 @@ begin
     FreeAndNil(c);
   end;
 end;
- { ############################ }
 
 procedure bongkarArsip(_namaFile, _folderHasil: string);
 var
